@@ -81,6 +81,13 @@ export const TrayIndicator = GObject.registerClass(
 				button.destroy();
 			});
 
+			button.connect("touch-event", (actor, event) => {
+				this.menu.close();
+				if (event.type() == Clutter.EventType.TOUCH_END) {
+					this._appManager.leftClick(icon, event);
+				}
+			});
+
 			button.connect("button-release-event", (actor, event) => {
 				this.menu.close();
 				switch (event.get_button()) {
