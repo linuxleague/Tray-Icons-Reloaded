@@ -63,6 +63,7 @@ export const TrayIndicator = GObject.registerClass(
 				style: this._getButtonStyle(),
 				style_class: "panel-button",
 			});
+			button.clear_actions()
 			icon.opacity = 0;
 			icon.set_x_align(Clutter.ActorAlign.CENTER);
 			icon.set_y_align(Clutter.ActorAlign.CENTER);
